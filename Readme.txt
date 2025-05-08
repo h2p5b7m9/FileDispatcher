@@ -1,5 +1,3 @@
-1.12.2008
-
 Servidor de ficheros .xls Excel y .mdb Access. Lee ficheros planos descargados de AS400 .txt de un directorio de la red, graba .xls Excel y .mdb Access en otro directorio, y genera un log historico.
 
 Genera ficheros .xls Excel tipo csv y .mdb Access a partir de ficheros de texto. Ejemplo:
@@ -8,11 +6,11 @@ COLNAMES:CDDOCUME,NUSECUPE,DSFUNCIO,FEPETICI,FEFIN,TIPETICI,ESTADOPE,ESTADOAP,NO
 COLTYPES:A,P,A,P,P,A,A,A,A,A,A,A,A,A,A,A,A,A,P,P,A,P,P,A,P,A,A,A,A,A,A,A,A,A,P,P,P,P,A,A,A,A,A,A,A,P <-- A=Alfanume String, P=Packed Numerico
 COLLENGTHS:00012,09,00030,08,08,00002,00002,00002,00010,00001,00003,00001,00001,00001,00001,00001,00001,00001,03,03,00010,08,09,00008,03,00001,00010,00004,00001,00007,00030,00015,00002,00003,08,08,04,04,00001,00001,00001,00001,00004,00010,00008,13
 DESTINAT:localhost,,C:\Java\DownloadTool00\Files <-- El primer elemento es el servidor maquina, el segundo el recurso y el tercero el path del fichero creo
-REPOTYPE:MDB ó XLS <-- MDB=Access, XLS=Excel
+REPOTYPE:MDB Ã³ XLS <-- MDB=Access, XLS=Excel
 
 Tabulador es el caracter separador de columnas en el fichero de salida XLS
 
-Añadir los .jar siguientes y por este orden al proyecto:
+AÃ±adir los .jar siguientes y por este orden al proyecto:
    commons-collections.jar
    commons-logging-1.0.4.jar
    commons-lang-2.0.jar
@@ -25,23 +23,23 @@ PARA PROBAR/EJECUTAR:
 Eclipse / Open project / Folder: C:\Users\ignac\Documents\Java\DownloadTool00
 
 Copiar KTOR34T.INI.TXT y KTOR34T.CSV.TXT (juego de pruebas con 1 solo campo) al directorio D:\Mis Documentos\Java\DownloadTool00\Files
-El programa habrá funcionado correctamente cuando borre estos ficheros y genere un .xls excel o .mdb access en D:\Mis Documentos\Java\DownloadTool00\Files\Temp\errors y actualice el fichero D:\Mis Documentos\Java\DownloadTool00\Files\Temp\errors\error.txt. Parar el debug manualm porque no acaba sino que se queda esperando nuevos ficheros mirando cada 6 segundos sleep.
+El programa habrÃ¡ funcionado correctamente cuando borre estos ficheros y genere un .xls excel o .mdb access en D:\Mis Documentos\Java\DownloadTool00\Files\Temp\errors y actualice el fichero D:\Mis Documentos\Java\DownloadTool00\Files\Temp\errors\error.txt. Parar el debug manualm porque no acaba sino que se queda esperando nuevos ficheros mirando cada 6 segundos sleep.
 
 
 Lanzar el AqNewAS400FileDetection.java, que tiene main:
    Crear un Name: DownloadTool
    Project: Info2000
-   - En la 1ª pestaña del WASD, Main class, poner: zurich.ae.downloadTool.AqNewAS400FileDetection (sin el .java al final, sinó da error no encuentra rt.jar).
-   - En la 2ª pestaña del WASD poner, Argumentos, var0 (la 1ª linea del fichero config.ini).
+   - En la 1Âª pestaÃ±a del WASD, Main class, poner: zurich.ae.downloadTool.AqNewAS400FileDetection (sin el .java al final, sinÃ³ da error no encuentra rt.jar).
+   - En la 2Âª pestaÃ±a del WASD poner, Argumentos, var0 (la 1Âª linea del fichero config.ini).
 
 WebSphere / Hijack Apropiarse el AqConfigAndLog.java y cambiar:
-   //IMC-01 Sólo para debug local
+   //IMC-01 SÃ³lo para debug local
    //this.configName = System.getProperty("config");
    // configName = "D:\\Mis Documentos\\Java\\DownloadTool00\\Files\\config.ini";
    //configName = "C:\\Documents and Settings\\tuMacipeI\\My Documents\\IMBORRAR\\Java\\DownloadTool\\config.ini";
    //IMC-01
 
-CAGADA (NO REPETIR):
+NO hacer:
    Cambiar
    this.configName = System.getProperty("config");
    por
@@ -51,7 +49,6 @@ CAGADA (NO REPETIR):
 AqNewAS400FileDetection 00.java: Asteriscar/comentar el sleep.
    //Thread.sleep(60000);
 
-CAGADA: Si pones breakpoint en el main no se para. Hay que ponerlo en la linea siguiente.
 - - -
 C:\Workspaces\Views\CH_UAT_HOTFIX_RICH\VOB_RICH\Info2000\zurich\ae\downloadTool
 
@@ -106,7 +103,7 @@ Funcion anonima o lambda ({})
 AqNewAS400FileDetection.java
 
 - - -
-OJO Debug Te puede mostrar el fuente no activo / Para que entre en AqReportTypeTransformation hay que ir a AqFileDetectionRunnable.java para hacer F6=Paso porque lo normal es que se quede en AqFileDetectionRunnable.java que tamb permite F6=Paso y el otro se queda suspendido. Esto es porque el thread es una ejecucion paralela. Comprobar que en panel izquierdo de debug AqFileDetectionRunnable.java no esté Suspended 1 o vafias veces.
+OJO Debug Te puede mostrar el fuente no activo / Para que entre en AqReportTypeTransformation hay que ir a AqFileDetectionRunnable.java para hacer F6=Paso porque lo normal es que se quede en AqFileDetectionRunnable.java que tamb permite F6=Paso y el otro se queda suspendido. Esto es porque el thread es una ejecucion paralela. Comprobar que en panel izquierdo de debug AqFileDetectionRunnable.java no estÃ© Suspended 1 o vafias veces.
 - - -
 
 Google: Ascii table
@@ -142,7 +139,7 @@ Los campos de entrada pueden ser A=Alfa/String o P=Numerico.
 - - -
 jackcess v1*.jar no funcionan desde el principio para generar ficheros Access.
 Pendiente:
-Probar jackcess-4.0.8.jar que es mas reciente. Añadirla al build path
+Probar jackcess-4.0.8.jar que es mas reciente. AÃ±adirla al build path
 
 - - -
 
@@ -192,7 +189,7 @@ C:\Produccion\DownloadTool00\Files\Temp
 
 - - -
 
-Oriol programa bastante modularizado ed varias clases y con varias funcione metodos ed no le gusta metodos muy largos
+Programa bastante modularizado ed varias clases y con varias funciones metodos
 
 - - -
 
